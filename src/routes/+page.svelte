@@ -109,7 +109,9 @@
       <h3>{current === 'tr' ? 'Mühendislik Araçları' : 'Engineering Tools'}</h3>
       <div class="skill-tags">
         <span class="skill-tag">SolidWorks</span>
-        <span class="skill-tag">Arduino</span>
+        <span class="skill-tag">TIA Portal</span>
+        <span class="skill-tag">DIADesigner</span>
+        <span class="skill-tag">DOPSoft</span>
         <span class="skill-tag">ROS2</span>
         <span class="skill-tag">PyTorch</span>
       </div>
