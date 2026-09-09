@@ -134,7 +134,7 @@
 
     <article class="project-item">
       <div class="project-meta">
-        <span class="project-period">2025</span>
+        <span class="project-period">2026</span>
         <span class="project-category">{current === 'tr' ? 'Robotik & Simülasyon' : 'Robotics & Simulation'}</span>
       </div>
       <div class="project-content">

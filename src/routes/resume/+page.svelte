@@ -52,7 +52,7 @@
 
       <div class="cv-item">
         <div class="cv-meta">
-          <span class="cv-date">2025</span>
+          <span class="cv-date">2026</span>
           <span class="cv-place">NexusControl Sim</span>
         </div>
         <div class="cv-details">
