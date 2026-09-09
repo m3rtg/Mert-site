@@ -1,4 +1,4 @@
-﻿<script>
+<script>
   import { lang } from '$lib/stores';
   import Contact from './contact/+page.svelte';
   $: current = $lang;
@@ -6,81 +6,74 @@
 
 <svelte:head>
   <meta name="description" content={current === 'tr'
-    ? 'Ben Mert, Manisa Celal Bayar Ãœniversitesi Mekatronik MÃ¼hendisliÄŸi Ã¶ÄŸrencisiyim. Back-end geliÅŸtirme ve otomasyon sistemleri Ã¼zerine Ã§alÄ±ÅŸÄ±yorum.'
-    : 'I am Mert, a Mechatronics Engineering student at Manisa Celal Bayar University. I focus on back-end development and automation systems.'} />
+    ? 'Ben Mert, Manisa Celal Bayar Üniversitesi Mekatronik Mühendisliği öğrencisiyim. Yazılıma ve teknolojiye duyduğum ilgi, beni sürekli araştırmaya ve üretmeye yöneltti. Güncel olarak özellikle back-end geliştirme ve otomasyon sistemleri üzerine çalışıyor, farklı projelerde edindiğim deneyimlerle teknik becerilerimi ileriye taşıyorum. Problem çözmeyi, yeni şeyler öğrenmeyi ve edindiğim bilgileri gerçek projelere aktarmayı seviyorum.'
+    : 'I am Mert, a Mechatronics Engineering student at Manisa Celal Bayar University. I focus on back-end development and automation systems, continuously exploring and creating. I enjoy problem-solving, learning new things, and applying my knowledge to real-world projects.'} />
 </svelte:head>
 
-<!-- â•â•â• HERO â•â•â• -->
-<section id="top" class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      <span>{current === 'tr' ? 'Staj iÃ§in uygun' : 'Available for internship'}</span>
-    </div>
-    <h1 class="hero-name">Mert GÃ¶rgÃ¼lÃ¼</h1>
-    <p class="hero-title">
-      {current === 'tr' ? 'Mekatronik MÃ¼hendisliÄŸi Ã–ÄŸrencisi' : 'Mechatronics Engineering Student'}
-      <span class="title-separator">Â·</span>
-      {current === 'tr' ? 'Full-Stack GeliÅŸtirici' : 'Full-Stack Developer'}
-    </p>
-    <p class="hero-bio">
-      {current === 'tr'
-        ? 'Otomasyon sistemleri, robotik ve modern web teknolojileri alanÄ±nda Ã§alÄ±ÅŸÄ±yorum. Problem Ã§Ã¶zmeyi, analitik dÃ¼ÅŸÃ¼nmeyi ve Ã¶ÄŸrendiklerimi gerÃ§ek dÃ¼nya projelerine aktarmayÄ± Ã¶nemsiyorum.'
-        : 'Working across automation systems, robotics, and modern web technologies. I care about problem-solving, analytical thinking, and turning knowledge into real-world impact.'}
-    </p>
-    <div class="hero-meta">
-      <span class="meta-chip">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Manisa, Turkey
-      </span>
-      <span class="meta-chip">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        {current === 'tr' ? 'MCBÃœ Mekatronik' : 'MCBU Mechatronics'}
-      </span>
-    </div>
-    <div class="hero-cta">
-      <a href="/resume" class="btn-primary">
-        {current === 'tr' ? 'Ã–zgeÃ§miÅŸi GÃ¶rÃ¼ntÃ¼le' : 'View Resume'}
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="/#contact" class="btn-ghost">{current === 'tr' ? 'Ä°letiÅŸime GeÃ§' : 'Get in Touch'}</a>
-    </div>
-  </div>
-  <div class="hero-graphic" aria-hidden="true">
-    <div class="geo geo-1"></div>
-    <div class="geo geo-2"></div>
-    <div class="geo geo-3"></div>
-    <div class="label-cluster">
-      <div class="label-item">
-        <span class="label-icon">âš™</span>
-        <span class="label-text">{current === 'tr' ? 'Otomasyon' : 'Automation'}</span>
+<!-- ═══ HERO ═══ -->
+<section id="top" class="section hero-section">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow-label">{current === 'tr' ? 'Staj için uygun' : 'Available for internship'}</span>
       </div>
-      <div class="label-item">
-        <span class="label-icon">â—</span>
-        <span class="label-text">{current === 'tr' ? 'Robotik' : 'Robotics'}</span>
+      <h1 class="hero-name">Mert Görgülü</h1>
+      <p class="hero-title">
+        {current === 'tr'
+          ? 'Mekatronik Mühendisliği Öğrencisi · Full-Stack Developer'
+          : 'Mechatronics Engineering Student · Full-Stack Developer'}
+      </p>
+      <p class="hero-desc">
+        {current === 'tr'
+          ? 'Otomasyon sistemleri, robotik ve modern web teknolojileri alanında çalışıyorum. Problem çözmeyi ve bilgimi gerçek projelere aktarmayı seviyorum.'
+          : 'Working across automation systems, robotics, and modern web technologies. I care about problem-solving, analytical thinking, and turning knowledge into real-world impact.'}
+      </p>
+      <div class="hero-chips">
+        <span class="chip">📍 Manisa, Turkey</span>
+        <span class="chip">🎓 MCBÜ Mekatronik</span>
       </div>
-      <div class="label-item">
-        <span class="label-icon">âŒ</span>
-        <span class="label-text">{current === 'tr' ? 'Web GeliÅŸtirme' : 'Web Dev'}</span>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/resume">{current === 'tr' ? 'Özgeçmişi Görüntüle →' : 'View Resume →'}</a>
+        <a class="btn-ghost" href="#contact">{current === 'tr' ? 'İletişime Geç' : 'Get in Touch'}</a>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="geo geo-3"></div>
+      <div class="geo geo-1"></div>
+      <div class="geo geo-2"></div>
+      <div class="label-cluster">
+        <div class="label-item">
+          <span class="label-icon">⚙</span>
+          <span class="label-text">{current === 'tr' ? 'Otomasyon' : 'Automation'}</span>
+        </div>
+        <div class="label-item">
+          <span class="label-icon">◎</span>
+          <span class="label-text">{current === 'tr' ? 'Robotik' : 'Robotics'}</span>
+        </div>
+        <div class="label-item">
+          <span class="label-icon">⌁</span>
+          <span class="label-text">{current === 'tr' ? 'Web Geliştirme' : 'Web Dev'}</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- â•â•â• ABOUT â•â•â• -->
+<!-- ═══ ABOUT ═══ -->
 <section id="about" class="section">
-  <div class="section-label">{current === 'tr' ? 'â€” HakkÄ±mda' : 'â€” About'}</div>
+  <div class="section-label">{current === 'tr' ? '— Hakkımda' : '— About'}</div>
   <div class="about-grid">
     <div class="about-text">
-      <h2 class="section-heading">{current === 'tr' ? 'MÃ¼hendislik & YazÄ±lÄ±m' : 'Engineering & Software'}</h2>
+      <h2 class="section-heading">{current === 'tr' ? 'Mühendislik & Yazılım' : 'Engineering & Software'}</h2>
       <p>
         {current === 'tr'
-          ? 'Manisa Celal Bayar Ãœniversitesi\'nde Mekatronik MÃ¼hendisliÄŸi okuyorum. YazÄ±lÄ±m ve teknolojiye olan ilgim beni sÃ¼rekli araÅŸtÄ±rmaya ve Ã¼retmeye yÃ¶neltiyor. Ã–zellikle back-end geliÅŸtirme ve otomasyon sistemleri Ã¼zerine yoÄŸunlaÅŸÄ±yor, farklÄ± projelerde edindiÄŸim deneyimlerle teknik becerilerimi geliÅŸtiriyorum.'
+          ? 'Manisa Celal Bayar Üniversitesi\'nde Mekatronik Mühendisliği okuyorum. Yazılım ve teknolojiye olan ilgim beni sürekli araştırmaya ve üretmeye yöneltiyor. Özellikle back-end geliştirme ve otomasyon sistemleri üzerine yoğunlaşıyor, farklı projelerde edindiğim deneyimlerle teknik becerilerimi geliştiriyorum.'
           : 'I am studying Mechatronics Engineering at Manisa Celal Bayar University. My passion for software and technology drives me to continuously explore and build. I focus especially on back-end development and automation systems, growing my technical skills through hands-on project experience.'}
       </p>
       <p>
         {current === 'tr'
-          ? 'Problem Ã§Ã¶zmeyi, yeni ÅŸeyler Ã¶ÄŸrenmeyi ve bilgimi gerÃ§ek projelere aktarmayÄ± seviyorum. Hem bireysel Ã§alÄ±ÅŸmalarda hem de ekip projelerinde aktif rol alÄ±yorum.'
+          ? 'Problem çözmeyi, yeni şeyler öğrenmeyi ve bilgimi gerçek projelere aktarmayı seviyorum. Hem bireysel çalışmalarda hem de ekip projelerinde aktif rol alıyorum.'
           : 'I enjoy problem-solving, learning new things, and applying knowledge to real projects. I take active roles in both independent work and team collaborations.'}
       </p>
     </div>
@@ -97,10 +90,10 @@
   </div>
 </section>
 
-<!-- â•â•â• SKILLS â•â•â• -->
+<!-- ═══ SKILLS ═══ -->
 <section id="skills" class="section">
-  <div class="section-label">{current === 'tr' ? 'â€” Teknolojiler & Beceriler' : 'â€” Technologies & Skills'}</div>
-  <h2 class="section-heading">{current === 'tr' ? 'AraÃ§ Setim' : 'My Toolkit'}</h2>
+  <div class="section-label">{current === 'tr' ? '— Teknolojiler & Beceriler' : '— Technologies & Skills'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'Araç Setim' : 'My Toolkit'}</h2>
   <div class="skills-layout">
     <div class="skill-group">
       <h3 class="skill-group-title">{current === 'tr' ? 'Programlama Dilleri' : 'Languages'}</h3>
@@ -112,7 +105,7 @@
       </div>
     </div>
     <div class="skill-group">
-      <h3 class="skill-group-title">{current === 'tr' ? 'Web Teknolojileri' : 'Web Stack'}</h3>
+      <h3 class="skill-group-title">{current === 'tr' ? 'Framework & Kütüphaneler' : 'Frameworks & Libraries'}</h3>
       <div class="skill-pills">
         <span class="pill">SvelteKit</span>
         <span class="pill">Node.js</span>
@@ -120,7 +113,7 @@
       </div>
     </div>
     <div class="skill-group">
-      <h3 class="skill-group-title">{current === 'tr' ? 'MÃ¼hendislik AraÃ§larÄ±' : 'Engineering Tools'}</h3>
+      <h3 class="skill-group-title">{current === 'tr' ? 'Mühendislik Araçları' : 'Engineering Tools'}</h3>
       <div class="skill-pills">
         <span class="pill">SolidWorks</span>
         <span class="pill">TIA Portal</span>
@@ -133,10 +126,10 @@
   </div>
 </section>
 
-<!-- â•â•â• PROJECTS â•â•â• -->
+<!-- ═══ PROJECTS ═══ -->
 <section id="projects" class="section">
-  <div class="section-label">{current === 'tr' ? 'â€” Projeler' : 'â€” Projects'}</div>
-  <h2 class="section-heading">{current === 'tr' ? 'SeÃ§ili Ã‡alÄ±ÅŸmalar' : 'Selected Work'}</h2>
+  <div class="section-label">{current === 'tr' ? '— Projeler' : '— Projects'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'Seçili Çalışmalar' : 'Selected Work'}</h2>
   <div class="projects-list">
 
     <article class="project-item">
@@ -224,11 +217,10 @@
   </div>
 </section>
 
-
-<!-- â•â•â• CERTIFICATIONS â•â•â• -->
+<!-- ═══ CERTIFICATIONS ═══ -->
 <section id="achievements" class="section">
-  <div class="section-label">{current === 'tr' ? 'â€” Sertifikalar' : 'â€” Certifications'}</div>
-  <h2 class="section-heading">{current === 'tr' ? 'EÄŸitim & Sertifikalar' : 'Education & Certifications'}</h2>
+  <div class="section-label">{current === 'tr' ? '— Sertifikalar' : '— Certifications'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'Eğitim & Sertifikalar' : 'Education & Certifications'}</h2>
   <div class="certs-list">
 
     <div class="cert-row">
@@ -237,9 +229,8 @@
       </div>
       <div class="cert-info">
         <p class="cert-issuer">PyTorch</p>
-        <p class="cert-name">{current === 'tr' ? 'Derin Ã–ÄŸrenme & Yapay Zeka' : 'Deep Learning & AI'}</p>
+        <p class="cert-name">{current === 'tr' ? 'Derin Öğrenme & Yapay Zeka' : 'Deep Learning & AI'}</p>
       </div>
-      <span class="cert-badge" style="display:none">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
     </div>
 
     <div class="cert-row">
@@ -248,9 +239,8 @@
       </div>
       <div class="cert-info">
         <p class="cert-issuer">Node.js</p>
-        <p class="cert-name">{current === 'tr' ? 'Backend GeliÅŸtirme' : 'Backend Development'}</p>
+        <p class="cert-name">{current === 'tr' ? 'Backend Geliştirme' : 'Backend Development'}</p>
       </div>
-      <span class="cert-badge" style="display:none">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
     </div>
 
     <div class="cert-row">
@@ -259,21 +249,20 @@
       </div>
       <div class="cert-info">
         <p class="cert-issuer">ROS2</p>
-        <p class="cert-name">{current === 'tr' ? 'Robot Ä°ÅŸletim Sistemi' : 'Robot Operating System'}</p>
+        <p class="cert-name">{current === 'tr' ? 'Robot İşletim Sistemi' : 'Robot Operating System'}</p>
       </div>
-      <span class="cert-badge" style="display:none">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
     </div>
 
   </div>
 </section>
 
-<!-- â•â•â• CONTACT â•â•â• -->
+<!-- ═══ CONTACT ═══ -->
 <section id="contact" class="section section-contact">
-  <div class="section-label">{current === 'tr' ? 'â€” Ä°letiÅŸim' : 'â€” Contact'}</div>
-  <h2 class="section-heading">{current === 'tr' ? 'KonuÅŸalÄ±m' : 'Let\'s Talk'}</h2>
+  <div class="section-label">{current === 'tr' ? '— İletişim' : '— Contact'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'Konuşalım' : 'Let\'s Talk'}</h2>
   <p class="contact-intro">
     {current === 'tr'
-      ? 'Bir proje, fÄ±rsat veya sadece merhaba demek iÃ§in bana ulaÅŸabilirsiniz.'
+      ? 'Bir proje, fırsat veya sadece merhaba demek için bana ulaşabilirsiniz.'
       : 'Reach out for a project, an opportunity, or just to say hello.'}
   </p>
   <Contact />
@@ -281,7 +270,7 @@
 </section>
 
 <style>
-  /* â”€â”€ Shared â”€â”€ */
+  /* ── Shared ── */
   .section {
     max-width: 960px;
     margin: 0 auto;
@@ -304,29 +293,28 @@
     line-height: 1.15;
   }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  /* ══════════════════════════════
      HERO
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-  .hero {
+  ══════════════════════════════ */
+  .hero-section {
     min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 420px;
+    grid-template-columns: 1fr 380px;
     gap: 4rem;
     align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
+    width: 100%;
   }
-
-  .hero-eyebrow {
-    display: inline-flex;
+  .eyebrow {
+    display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--success);
-    letter-spacing: 0.04em;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
   .eyebrow-dot {
     width: 7px;
@@ -334,17 +322,25 @@
     border-radius: 50%;
     background: var(--success);
     flex-shrink: 0;
-    animation: pulse-dot 2.5s ease-in-out infinite;
+    animation: pulse-dot 5s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
   }
   @keyframes pulse-dot {
     0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.45); }
     50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
   }
-  :root[data-theme="dark"] .eyebrow-dot {
+  .eyebrow-dot {
     background: var(--success);
   }
 
-
+  .eyebrow-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--highlight);
+  }
   .hero-name {
     font-size: clamp(2.75rem, 5vw, 4rem);
     font-weight: 800;
@@ -353,47 +349,38 @@
     color: var(--fg);
     margin: 0 0 0.75rem;
   }
-
   .hero-title {
     font-size: 1rem;
     font-weight: 500;
     color: var(--fg-secondary);
-    margin: 0 0 1.5rem;
-    letter-spacing: 0.01em;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
-  .title-separator {
-    margin: 0 0.5em;
-    color: var(--border-strong);
-  }
-
-  .hero-bio {
-    font-size: 1.05rem;
+  .hero-desc {
+    font-size: 1rem;
     line-height: 1.75;
     color: var(--fg-secondary);
-    max-width: 520px;
-    margin: 0 0 2rem;
+    margin-bottom: 2rem;
+    max-width: 480px;
   }
-
-  .hero-meta {
+  .hero-chips {
     display: flex;
+    gap: 0.625rem;
     flex-wrap: wrap;
-    gap: 0.5rem;
     margin-bottom: 2rem;
   }
-  .meta-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+  .chip {
     font-size: 0.8rem;
-    font-weight: 500;
     color: var(--fg-muted);
-    background: var(--bg-tertiary);
+    background: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: 20px;
     padding: 0.3rem 0.75rem;
   }
-
-  .hero-cta {
+  .hero-actions {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
@@ -401,37 +388,32 @@
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
     background: var(--fg);
     color: var(--bg);
-    text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
     padding: 0.7rem 1.4rem;
-    border-radius: 8px;
-    transition: opacity 0.2s, transform 0.2s;
-    letter-spacing: 0.01em;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: opacity 0.18s;
   }
-  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-
+  .btn-primary:hover { opacity: 0.85; }
   .btn-ghost {
     display: inline-flex;
     align-items: center;
-    text-decoration: none;
+    background: transparent;
+    color: var(--fg);
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--fg-secondary);
-    padding: 0.7rem 1.2rem;
-    border-radius: 8px;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
     border: 1px solid var(--border);
-    background: transparent;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
-    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: border-color 0.18s, background 0.18s;
   }
   .btn-ghost:hover {
-    color: var(--fg);
     border-color: var(--border-strong);
-    background: var(--accent-subtle);
+    background: var(--bg-secondary);
   }
 
   /* Hero Graphic */
@@ -447,6 +429,9 @@
     border-radius: 50%;
     opacity: 0.12;
     animation: slow-rotate 20s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    pointer-events: none;
   }
   :root[data-theme="dark"] .geo { opacity: 0.08; }
 
@@ -462,7 +447,7 @@
   }
   .geo-3 {
     width: 340px; height: 340px;
-    border: 1px dashed var(--border-strong);
+    border: 1px solid var(--border-strong);
     animation-duration: 36s;
     opacity: 0.25;
   }
@@ -477,6 +462,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    isolation: isolate;
   }
   .label-item {
     display: flex;
@@ -487,12 +473,15 @@
     border-radius: 10px;
     padding: 0.75rem 1.25rem;
     box-shadow: var(--shadow);
-    animation: label-float 5s ease-in-out infinite;
     will-change: transform;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    animation: label-float 4s cubic-bezier(0.37, 0.1, 0.63, 0.9) infinite;
   }
-  .label-item:nth-child(2) { animation-delay: 1.65s; }
-  .label-item:nth-child(3) { animation-delay: 3.3s; }
+  .label-item:nth-child(2) { animation-delay: 0.25s; }
+  .label-item:nth-child(3) { animation-delay: 0.5s; }
   @keyframes label-float {
     0%, 100% { transform: translate3d(0, 0, 0); }
     50%       { transform: translate3d(0, -4px, 0); }
@@ -510,9 +499,9 @@
     letter-spacing: 0.01em;
   }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  /* ══════════════════════════════
      ABOUT
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  ══════════════════════════════ */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 220px;
@@ -539,7 +528,7 @@
   .aside-stat {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.2rem;
   }
   .stat-num {
     font-size: 2rem;
@@ -549,35 +538,30 @@
     line-height: 1;
   }
   .stat-label {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--fg-muted);
-    letter-spacing: 0.03em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
+    color: var(--fg-muted);
   }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  /* ══════════════════════════════
      SKILLS
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  ══════════════════════════════ */
   .skills-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-  }
-  .skill-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
   }
   .skill-group-title {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--fg-muted);
-    padding-bottom: 0.75rem;
+    margin-bottom: 0.875rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border);
-    margin: 0;
   }
   .skill-pills {
     display: flex;
@@ -585,61 +569,41 @@
     gap: 0.5rem;
   }
   .pill {
-    display: inline-block;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--fg-secondary);
-    background: var(--bg-secondary);
+    background: var(--bg-tertiary);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 0.35rem 0.75rem;
-    transition: color 0.18s, border-color 0.18s, background 0.18s;
-    letter-spacing: 0.01em;
+    padding: 0.3rem 0.65rem;
+    transition: border-color 0.18s, color 0.18s;
   }
   .pill:hover {
-    color: var(--fg);
     border-color: var(--highlight);
-    background: var(--highlight-subtle);
+    color: var(--fg);
   }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  /* ══════════════════════════════
      PROJECTS
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  ══════════════════════════════ */
   .projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
     border: 1px solid var(--border);
     border-radius: 14px;
     overflow: hidden;
-    background: var(--bg-secondary);
-    box-shadow: var(--shadow);
   }
   .project-item {
     display: grid;
     grid-template-columns: 180px 1fr;
-    gap: 0;
-    padding: 2rem 2rem;
+    gap: 2rem;
+    padding: 1.75rem 2rem;
     border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-    position: relative;
+    border-left: 3px solid transparent;
+    transition: border-color 0.18s, background 0.18s;
   }
   .project-item:last-child { border-bottom: none; }
-  .project-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: transparent;
-    transition: background 0.25s;
-  }
   .project-item:hover {
+    border-left-color: var(--highlight);
     background: var(--accent-subtle);
-  }
-  .project-item:hover::before {
-    background: var(--highlight);
   }
   .project-meta {
     display: flex;
@@ -651,173 +615,130 @@
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--fg-muted);
-    font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
   }
   .project-category {
     font-size: 0.72rem;
     font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.07em;
     color: var(--highlight);
   }
-  .project-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
   .project-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--fg);
-    margin: 0;
-    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
   }
   .project-desc {
-    font-size: 0.93rem;
+    font-size: 0.9rem;
     line-height: 1.7;
     color: var(--fg-secondary);
-    margin: 0;
+    margin-bottom: 0.875rem;
   }
   .project-links {
     display: flex;
-    gap: 1rem;
-    margin-top: 0.25rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
   .project-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--fg-muted);
     text-decoration: none;
-    letter-spacing: 0.03em;
-    transition: color 0.18s;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    transition: color 0.18s, border-color 0.18s, background 0.18s;
   }
-  .project-link:hover { color: var(--highlight); }
+  .project-link:hover {
+    color: var(--fg);
+    border-color: var(--border-strong);
+    background: var(--bg-tertiary);
+  }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  /* ══════════════════════════════
      CERTIFICATIONS
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  ══════════════════════════════ */
   .certs-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
     border: 1px solid var(--border);
     border-radius: 14px;
     overflow: hidden;
-    background: var(--bg-secondary);
-    box-shadow: var(--shadow);
   }
   .cert-row {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
     padding: 1.25rem 1.75rem;
     border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
+    transition: background 0.18s;
   }
   .cert-row:last-child { border-bottom: none; }
-  .cert-row:hover { background: var(--accent-subtle); }
+  .cert-row:hover { background: var(--bg-secondary); }
   .cert-logo-wrap {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
     background: var(--bg-tertiary);
     border: 1px solid var(--border);
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    padding: 6px;
   }
   .cert-logo {
-    width: 100%;
-    height: 100%;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
   }
-  .cert-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-  }
+  .cert-info { flex: 1; min-width: 0; }
   .cert-issuer {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--fg);
-    margin: 0;
-    letter-spacing: -0.01em;
+    margin-bottom: 0.1rem;
   }
   .cert-name {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--fg-muted);
-    margin: 0;
-  }
-  .cert-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--highlight);
-    background: var(--highlight-subtle);
-    border: 1px solid rgba(var(--highlight-rgb), 0.25);
-    border-radius: 999px;
-    padding: 0.25rem 0.75rem;
-    flex-shrink: 0;
   }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  /* ══════════════════════════════
      CONTACT
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  ══════════════════════════════ */
   .section-contact { padding-bottom: 2rem; }
   .contact-intro {
     font-size: 1rem;
     color: var(--fg-secondary);
+    line-height: 1.7;
     margin-bottom: 2rem;
-    line-height: 1.6;
+    max-width: 480px;
   }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  /* ══════════════════════════════
      RESPONSIVE
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-  @media (max-width: 900px) {
-    .hero {
+  ══════════════════════════════ */
+  @media (max-width: 768px) {
+    .hero-grid {
       grid-template-columns: 1fr;
-      min-height: auto;
-      padding-top: 3rem;
     }
     .hero-graphic { display: none; }
     .about-grid {
       grid-template-columns: 1fr;
+      gap: 2rem;
     }
-    .about-aside {
-      flex-direction: row;
-      gap: 1.5rem;
-      padding: 1.25rem 1.5rem;
-    }
-    .aside-stat { flex: 1; align-items: center; text-align: center; }
-  }
-
-  @media (max-width: 640px) {
-    .section { padding: 4rem 1.25rem 0; }
-    .hero { padding: 2.5rem 1.25rem; }
-    .hero-name { font-size: 2.25rem; }
-    .section-heading { font-size: 1.6rem; }
     .project-item {
       grid-template-columns: 1fr;
       gap: 0.5rem;
     }
-    .project-meta { flex-direction: row; align-items: center; gap: 0.75rem; }
-    .cert-row { padding: 1rem 1.25rem; }
-    .cert-badge { display: none; }
-    .skills-layout { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title { font-size: 0.9rem; }
-    .hero-bio { font-size: 0.95rem; }
-    .btn-primary, .btn-ghost { font-size: 0.85rem; padding: 0.65rem 1.1rem; }
+    .project-meta { flex-direction: row; align-items: center; }
+    .section { padding: 4rem 1.25rem 0; }
   }
 </style>
