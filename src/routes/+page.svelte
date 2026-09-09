@@ -726,10 +726,41 @@
      RESPONSIVE
   ══════════════════════════════ */
   @media (max-width: 768px) {
+    .hero-section {
+      min-height: auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
     .hero-grid {
       grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
-    .hero-graphic { display: none; }
+    .hero-graphic {
+      height: 310px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .geo-1 {
+      width: 220px;
+      height: 220px;
+    }
+    .geo-2 {
+      width: 160px;
+      height: 160px;
+    }
+    .geo-3 {
+      width: 280px;
+      height: 280px;
+    }
+    .label-cluster {
+      gap: 0.6rem;
+    }
+    .label-item {
+      padding: 0.65rem 1.1rem;
+    }
     .about-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
@@ -739,6 +770,6 @@
       gap: 0.5rem;
     }
     .project-meta { flex-direction: row; align-items: center; }
-    .section { padding: 4rem 1.25rem 0; }
+    .section { padding: 3.5rem 1.25rem 0; }
   }
 </style>
