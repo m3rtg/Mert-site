@@ -37,7 +37,7 @@
       <h2>{#if $lang === "tr"}Eğitim{:else}Education{/if}</h2>
       <div class="cv-item">
         <div class="cv-meta">
-          <span class="cv-date">2021 — {#if $lang === "tr"}Devam Ediyor{:else}Present{/if}</span>
+          <span class="cv-date">2022 — {#if $lang === "tr"}Devam Ediyor{:else}Present{/if}</span>
           <span class="cv-place">Manisa Celal Bayar {#if $lang === "tr"}Üniversitesi{:else}University{/if}</span>
         </div>
         <div class="cv-details">
