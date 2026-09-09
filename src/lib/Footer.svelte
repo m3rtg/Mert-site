@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { lang } from '$lib/stores';
   import { Linkedin, Mail, Github, Instagram } from 'lucide-svelte';
 
@@ -13,7 +13,7 @@
   <div class="footer-inner">
     <span class="footer-name">Muhammet Mert Görgülü</span>
     <span class="footer-sep">·</span>
-    <span class="footer-copy">&copy; {year}</span>
+    <span class="footer-copy">&copy; 2025 - {year}</span>
 
     <div class="footer-socials">
       <button class="f-btn" on:click={openEmail} title="Email" aria-label="Email">
