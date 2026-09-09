@@ -8,37 +8,39 @@
 </script>
 
 <div class="contact-container">
-  <!-- Sosyal medya butonları -->
   <div class="social-buttons">
-    <button class="icon-btn" on:click={openEmailClient}>
-      <Mail size={20} />
+    <button class="social-btn" on:click={openEmailClient} title="Email">
+      <Mail size={18} />
     </button>
 
-    <a 
-      href="https://www.linkedin.com/in/muhammet-mert-g%C3%B6rg%C3%BCl%C3%BC-880051307/" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      class="icon-btn"
+    <a
+      href="https://www.linkedin.com/in/muhammet-mert-g%C3%B6rg%C3%BCl%C3%BC-880051307/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-btn"
+      title="LinkedIn"
     >
-      <Linkedin size={20} />
+      <Linkedin size={18} />
     </a>
 
-    <a 
-      href="https://github.com/m3rtg" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      class="icon-btn"
+    <a
+      href="https://github.com/m3rtg"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-btn"
+      title="GitHub"
     >
-      <Github size={20} />
+      <Github size={18} />
     </a>
 
-    <a 
-      href="https://www.instagram.com/m3rtg_?igsh=MWdmNDRpdHBydndseA==" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      class="icon-btn"
+    <a
+      href="https://www.instagram.com/m3rtg_?igsh=MWdmNDRpdHBydndseA=="
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-btn"
+      title="Instagram"
     >
-      <Instagram size={20} />
+      <Instagram size={18} />
     </a>
   </div>
 </div>
@@ -47,43 +49,36 @@
   .contact-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     color: var(--fg);
-    align-items: center;
-    text-align: center;
-    padding: 0 2rem;
-    box-sizing: border-box;
   }
 
-
-  /* Sosyal medya butonları */
   .social-buttons {
     display: flex;
-    gap: 0.75rem;
-    margin-top: 0;
-    justify-content: center;
+    gap: 0.625rem;
   }
 
-  .icon-btn {
-    background: transparent;
-    border: 1px solid var(--fg);
-    border-radius: 8px;
-    padding: 8px;
+  .social-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
     cursor: pointer;
-    color: var(--fg);
+    color: var(--fg-muted);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 44px;
     height: 44px;
-    transition: all 0.3s ease;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+    flex-shrink: 0;
   }
 
-  .icon-btn:hover {
-    background: rgba(0, 0, 0, 0.05);
+  .social-btn:hover {
+    color: var(--fg);
+    border-color: var(--border-strong);
+    background: var(--accent-subtle);
+    transform: translateY(-2px);
   }
-  :root[data-theme="dark"] .icon-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
 </style>
+

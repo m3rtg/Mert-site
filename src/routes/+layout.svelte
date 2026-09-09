@@ -1,8 +1,10 @@
 <script lang="ts">
   import '../app.css';
   import NavBar from '$lib/NavBar.svelte';
+  import Footer from '$lib/Footer.svelte';
   import { theme, lang } from '$lib/stores';
   import { onMount } from 'svelte';
+  import { onNavigate } from '$app/navigation';
 
   onMount(() => {
     const unsub = theme.subscribe((t) => {
@@ -11,7 +13,42 @@
     const unsub2 = lang.subscribe(() => {});
     return () => { unsub(); unsub2(); };
   });
+
+  // View Transitions API — smooth fade between pages
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
+
+  $: title = $lang === 'tr'
+    ? 'Mert Görgülü · Mekatronik Müh. & Yazılım Geliştirici'
+    : 'Mert Görgülü · Mechatronics Eng. & Software Developer';
+
+  $: description = $lang === 'tr'
+    ? 'Manisa Celal Bayar Üniversitesi Mekatronik Mühendisliği öğrencisi. Back-end geliştirme, otomasyon sistemleri ve robotik üzerine çalışıyorum.'
+    : 'Mechatronics Engineering student at Manisa Celal Bayar University. Working on back-end development, automation systems and robotics.';
 </script>
+
+<svelte:head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale"      content={$lang === 'tr' ? 'tr_TR' : 'en_US'} />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content={title} />
+  <meta name="twitter:description" content={description} />
+</svelte:head>
 
 <NavBar />
 
@@ -19,12 +56,26 @@
   <slot />
 </main>
 
+<Footer />
+
 <style>
   .page {
-    min-height: 200vh;
-    background: color-mix(in oklab, var(--bg) 94%, var(--fg) 6%);
+    min-height: 100vh;
+    background: var(--bg);
     color: var(--fg);
-    /* navbar ile aynı soldan boşluğu kullanalım */
-    padding: 2rem 2rem; 
+  }
+
+  /* ── View Transitions ── */
+  :global(::view-transition-old(root)) {
+    animation: 180ms ease both vt-fade-out;
+  }
+  :global(::view-transition-new(root)) {
+    animation: 260ms ease both vt-fade-in;
+  }
+  @keyframes vt-fade-out {
+    to { opacity: 0; transform: translateY(-3px); }
+  }
+  @keyframes vt-fade-in {
+    from { opacity: 0; transform: translateY(3px); }
   }
 </style>

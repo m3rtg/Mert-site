@@ -1,729 +1,823 @@
-<script>
+﻿<script>
   import { lang } from '$lib/stores';
   import Contact from './contact/+page.svelte';
   $: current = $lang;
-  const yearBadges = ['2023', '2024'];
 </script>
 
 <svelte:head>
   <meta name="description" content={current === 'tr'
-    ? 'Ben Mert, Manisa Celal Bayar Üniversitesi Mekatronik Mühendisliği öğrencisiyim. Yazılıma ve teknolojiye duyduğum ilgi, beni sürekli araştırmaya ve üretmeye yöneltti. Güncel olarak özellikle back-end geliştirme ve otomasyon sistemleri üzerine çalışıyor, farklı projelerde edindiğim deneyimlerle teknik becerilerimi ileriye taşıyorum. Problem çözmeyi, yeni şeyler öğrenmeyi ve edindiğim bilgileri gerçek projelere aktarmayı seviyorum.'
-    : 'I am Mert, a Mechatronics Engineering student at Manisa Celal Bayar University. I focus on back‑end development and automation systems, continuously exploring and creating. I enjoy problem‑solving, learning new things, and applying my knowledge to real‑world projects.'} />
+    ? 'Ben Mert, Manisa Celal Bayar Ãœniversitesi Mekatronik MÃ¼hendisliÄŸi Ã¶ÄŸrencisiyim. Back-end geliÅŸtirme ve otomasyon sistemleri Ã¼zerine Ã§alÄ±ÅŸÄ±yorum.'
+    : 'I am Mert, a Mechatronics Engineering student at Manisa Celal Bayar University. I focus on back-end development and automation systems.'} />
 </svelte:head>
 
+<!-- â•â•â• HERO â•â•â• -->
 <section id="top" class="hero">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1 class="title">
-        <span class="title-line">Mert Görgülü</span>
-        <span class="title-gradient">{current === 'tr' ? 'Mühendis & Yazılım Geliştirici' : 'Engineer & Developer'}</span>
-      </h1>
-      <p class="subtitle">
-        {current === 'tr' 
-          ? 'Mekatronik Mühendisliği Öğrencisi & Full-Stack Developer' 
-          : 'Mechatronics Engineering Student & Full-Stack Developer'}
-      </p>
-  <p class="lead">
-    {current === 'tr'
-          ? 'Otomasyon sistemleri, robotik ve modern web teknolojileri alanında çalışıyorum. Problem çözmeyi ve yenilikçi çözümler üretmeyi seviyorum.'
-          : 'I work in automation systems, robotics, and modern web technologies. I love problem-solving and creating innovative solutions.'}
-      </p>
-      <div class="hero-meta">
-        <div class="meta-item">
-          <span class="meta-icon">📍</span>
-          <span>Manisa, Turkey</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-icon">🎓</span>
-          <span>{current === 'tr' ? 'MCBÜ Mekatronik Mühendisliği' : 'MCBU Mechatronics Engineering'}</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-icon status-dot"></span>
-          <span>{current === 'tr' ? ' Staj için uygun' : 'Available for internship'}</span>
-        </div>
-      </div>
-      <div class="hero-actions">
-        <a href="/resume" class="btn btn-primary">
-          {current === 'tr' ? 'Özgeçmişimi İncele' : 'View Resume'}
-          <span class="btn-icon">→</span>
-        </a>
-      </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      <span>{current === 'tr' ? 'Staj iÃ§in uygun' : 'Available for internship'}</span>
     </div>
-    <div class="hero-visual">
-      <div class="floating-card card-1">
-        <div class="card-icon">⚙️</div>
-        <span>{current === 'tr' ? 'Otomasyon' : 'Automation'}</span>
-      </div>
-      <div class="floating-card card-2">
-        <div class="card-icon">🤖</div>
-        <span>{current === 'tr' ? 'Robotik' : 'Robotics'}</span>
-      </div>
-      <div class="floating-card card-3">
-        <div class="card-icon">💻</div>
-        <span>{current === 'tr' ? 'Web Geliştirme' : 'Web Dev'}</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <h2>{current === 'tr' ? 'Hakkımda' : 'About'}</h2>
-  <p>
-    {current === 'tr'
-      ? 'Ben Mert, Manisa Celal Bayar Üniversitesi Mekatronik Mühendisliği öğrencisiyim. Yazılıma ve teknolojiye duyduğum ilgi, beni sürekli araştırmaya ve üretmeye yöneltti. Güncel olarak özellikle back-end geliştirme ve otomasyon sistemleri üzerine çalışıyor, farklı projelerde edindiğim deneyimlerle teknik becerilerimi ileriye taşıyorum.'
-      : 'I am Mert, a Mechatronics Engineering student at Manisa Celal Bayar University. My interest in software and technology has led me to continuously explore and create. Currently, I am particularly focusing on back‑end development and automation systems, enhancing my technical skills through hands‑on experience in various projects.'}
-  </p>
-  <p>
-    {current === 'tr'
-      ? 'Problem çözmeyi, yeni şeyler öğrenmeyi ve edindiğim bilgileri gerçek projelere aktarmayı seviyorum. Bu süreçte hem bireysel hem de ekip çalışmalarında aktif rol alarak gelişimime katkı sağlamaya devam ediyorum.'
-      : 'I enjoy problem‑solving, learning new things, and applying my knowledge to real‑world projects. In this journey, I actively contribute to both individual and team projects, constantly striving to improve myself.'}
-  </p>
-  <p>
-    {current === 'tr'
-      ? 'Daha fazla bilgi edinmek isterseniz, özgeçmişimi incelemenizi tavsiye ederim.'
-      : 'For more details, I kindly invite you to take a look at my resume.'}
-  </p>
-</section>
-
-<section id="skills" class="section">
-  <h2>{current === 'tr' ? 'Teknolojiler & Beceriler' : 'Technologies & Skills'}</h2>
-  <div class="skills-grid">
-    <div class="skill-category">
-      <h3>{current === 'tr' ? 'Programlama Dilleri' : 'Programming Languages'}</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h3>{current === 'tr' ? 'Web Teknolojileri' : 'Web Technologies'}</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">SvelteKit</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Express</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h3>{current === 'tr' ? 'Mühendislik Araçları' : 'Engineering Tools'}</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">SolidWorks</span>
-        <span class="skill-tag">TIA Portal</span>
-        <span class="skill-tag">DIADesigner</span>
-        <span class="skill-tag">DOPSoft</span>
-        <span class="skill-tag">ROS2</span>
-        <span class="skill-tag">PyTorch</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <h2>{current === 'tr' ? 'Projeler' : 'Featured Projects'}</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-header">
-        <h3>{current === 'tr' ? 'Poyraz Robotaksi' : 'Poyraz Robotaxi'}</h3>
-        <span class="project-year">2022–2023</span>
-      </div>
-      <p class="project-description">
+    <h1 class="hero-name">Mert GÃ¶rgÃ¼lÃ¼</h1>
+    <p class="hero-title">
+      {current === 'tr' ? 'Mekatronik MÃ¼hendisliÄŸi Ã–ÄŸrencisi' : 'Mechatronics Engineering Student'}
+      <span class="title-separator">Â·</span>
+      {current === 'tr' ? 'Full-Stack GeliÅŸtirici' : 'Full-Stack Developer'}
+    </p>
+    <p class="hero-bio">
       {current === 'tr'
-          ? 'MCBÜ Bilim ve Teknoloji Kulübü bünyesindeki ekipte aktif rol aldım. "Karaçor" isimli otonom aracımızla Robotaksi-Binek Otonom Araç Yarışması\'nda finalist olduk.'
-          : 'Active role in the university team; with our autonomous vehicle "Karaçor" we became finalists in the Robotaxi‑Passenger Autonomous Vehicle Competition.'}
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">{current === 'tr' ? 'Otonom Sistemler' : 'Autonomous Systems'}</span>
-      </div>
-      <a class="project-link" href="https://www.youtube.com/watch?v=TmRs7XQ3giY" target="_blank" rel="noreferrer">
-        {current === 'tr' ? 'Proje Videosu' : 'Project Video'} ↗
+        ? 'Otomasyon sistemleri, robotik ve modern web teknolojileri alanÄ±nda Ã§alÄ±ÅŸÄ±yorum. Problem Ã§Ã¶zmeyi, analitik dÃ¼ÅŸÃ¼nmeyi ve Ã¶ÄŸrendiklerimi gerÃ§ek dÃ¼nya projelerine aktarmayÄ± Ã¶nemsiyorum.'
+        : 'Working across automation systems, robotics, and modern web technologies. I care about problem-solving, analytical thinking, and turning knowledge into real-world impact.'}
+    </p>
+    <div class="hero-meta">
+      <span class="meta-chip">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Manisa, Turkey
+      </span>
+      <span class="meta-chip">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        {current === 'tr' ? 'MCBÃœ Mekatronik' : 'MCBU Mechatronics'}
+      </span>
+    </div>
+    <div class="hero-cta">
+      <a href="/resume" class="btn-primary">
+        {current === 'tr' ? 'Ã–zgeÃ§miÅŸi GÃ¶rÃ¼ntÃ¼le' : 'View Resume'}
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+      <a href="/#contact" class="btn-ghost">{current === 'tr' ? 'Ä°letiÅŸime GeÃ§' : 'Get in Touch'}</a>
     </div>
-    
-    <div class="project-card">
-      <div class="project-header">
-        <h3>UARTEK Rover</h3>
-        <span class="project-year">2023–2025</span>
   </div>
-      <p class="project-description">
-      {current === 'tr'
-        ? 'ERC ve CIRC yarışmalarına başvuran ekipte robot kol geliştirme ve simülasyon hazırlama görevlerinde yer aldım.'
-        : 'In the team applying to ERC and CIRC competitions, I worked on robotic arm development and simulation preparation.'}
-    </p>
-      <div class="project-tags">
-        <span class="project-tag">{current === 'tr' ? 'Robotik' : 'Robotics'}</span>
-        <span class="project-tag">{current === 'tr' ? 'Simülasyon' : 'Simulation'}</span>
+  <div class="hero-graphic" aria-hidden="true">
+    <div class="geo geo-1"></div>
+    <div class="geo geo-2"></div>
+    <div class="geo geo-3"></div>
+    <div class="label-cluster">
+      <div class="label-item">
+        <span class="label-icon">âš™</span>
+        <span class="label-text">{current === 'tr' ? 'Otomasyon' : 'Automation'}</span>
       </div>
-      <div class="project-links">
-        <a class="project-link" href="https://www.youtube.com/watch?v=LU82qFIDWTU" target="_blank" rel="noreferrer">{current === 'tr' ? '2024 Proje Videosu' : '2024 Project Video'} ↗</a>
-        <a class="project-link" href="https://www.youtube.com/watch?v=Zjbt3IUMxvc" target="_blank" rel="noreferrer">{current === 'tr' ? '2025 Proje Videosu' : '2025 Project Video'} ↗</a>
+      <div class="label-item">
+        <span class="label-icon">â—</span>
+        <span class="label-text">{current === 'tr' ? 'Robotik' : 'Robotics'}</span>
       </div>
-    </div>
-    
-    <div class="project-card">
-      <div class="project-header">
-        <h3>{current === 'tr' ? 'UARTEK Hava Savunma Sistemi' : 'UARTEK Air Defence System'}</h3>
-        <span class="project-year">2024–2025</span>
-  </div>
-      <p class="project-description">
-      {current === 'tr'
-          ? 'Galvonometre tabanlı hava savunma sistemi için otonom ve manuel yönetimi sağlayan kullanıcı arayüzünü geliştirdim; Teknofest\'e başvurduk.'
-        : 'Developed the user interface enabling autonomous and manual control for a galvanometer‑based air defence system; submitted to Teknofest.'}
-    </p>
-      <div class="project-tags">
-        <span class="project-tag">{current === 'tr' ? 'GUI Geliştirici' : 'GUI Developer'}</span>
+      <div class="label-item">
+        <span class="label-icon">âŒ</span>
+        <span class="label-text">{current === 'tr' ? 'Web GeliÅŸtirme' : 'Web Dev'}</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- â•â•â• ABOUT â•â•â• -->
+<section id="about" class="section">
+  <div class="section-label">{current === 'tr' ? 'â€” HakkÄ±mda' : 'â€” About'}</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="section-heading">{current === 'tr' ? 'MÃ¼hendislik & YazÄ±lÄ±m' : 'Engineering & Software'}</h2>
+      <p>
+        {current === 'tr'
+          ? 'Manisa Celal Bayar Ãœniversitesi\'nde Mekatronik MÃ¼hendisliÄŸi okuyorum. YazÄ±lÄ±m ve teknolojiye olan ilgim beni sÃ¼rekli araÅŸtÄ±rmaya ve Ã¼retmeye yÃ¶neltiyor. Ã–zellikle back-end geliÅŸtirme ve otomasyon sistemleri Ã¼zerine yoÄŸunlaÅŸÄ±yor, farklÄ± projelerde edindiÄŸim deneyimlerle teknik becerilerimi geliÅŸtiriyorum.'
+          : 'I am studying Mechatronics Engineering at Manisa Celal Bayar University. My passion for software and technology drives me to continuously explore and build. I focus especially on back-end development and automation systems, growing my technical skills through hands-on project experience.'}
+      </p>
+      <p>
+        {current === 'tr'
+          ? 'Problem Ã§Ã¶zmeyi, yeni ÅŸeyler Ã¶ÄŸrenmeyi ve bilgimi gerÃ§ek projelere aktarmayÄ± seviyorum. Hem bireysel Ã§alÄ±ÅŸmalarda hem de ekip projelerinde aktif rol alÄ±yorum.'
+          : 'I enjoy problem-solving, learning new things, and applying knowledge to real projects. I take active roles in both independent work and team collaborations.'}
+      </p>
+    </div>
+    <div class="about-aside">
+      <div class="aside-stat">
+        <span class="stat-num">4</span>
+        <span class="stat-label">{current === 'tr' ? 'Proje' : 'Projects'}</span>
+      </div>
+      <div class="aside-stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">{current === 'tr' ? 'Sertifika' : 'Certifications'}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â•â• SKILLS â•â•â• -->
+<section id="skills" class="section">
+  <div class="section-label">{current === 'tr' ? 'â€” Teknolojiler & Beceriler' : 'â€” Technologies & Skills'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'AraÃ§ Setim' : 'My Toolkit'}</h2>
+  <div class="skills-layout">
+    <div class="skill-group">
+      <h3 class="skill-group-title">{current === 'tr' ? 'Programlama Dilleri' : 'Languages'}</h3>
+      <div class="skill-pills">
+        <span class="pill">JavaScript</span>
+        <span class="pill">Python</span>
+        <span class="pill">HTML</span>
+        <span class="pill">CSS</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3 class="skill-group-title">{current === 'tr' ? 'Web Teknolojileri' : 'Web Stack'}</h3>
+      <div class="skill-pills">
+        <span class="pill">SvelteKit</span>
+        <span class="pill">Node.js</span>
+        <span class="pill">Express</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3 class="skill-group-title">{current === 'tr' ? 'MÃ¼hendislik AraÃ§larÄ±' : 'Engineering Tools'}</h3>
+      <div class="skill-pills">
+        <span class="pill">SolidWorks</span>
+        <span class="pill">TIA Portal</span>
+        <span class="pill">DIADesigner</span>
+        <span class="pill">DOPSoft</span>
+        <span class="pill">ROS2</span>
+        <span class="pill">PyTorch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â•â• PROJECTS â•â•â• -->
+<section id="projects" class="section">
+  <div class="section-label">{current === 'tr' ? 'â€” Projeler' : 'â€” Projects'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'SeÃ§ili Ã‡alÄ±ÅŸmalar' : 'Selected Work'}</h2>
+  <div class="projects-list">
+
+    <article class="project-item">
+      <div class="project-meta">
+        <span class="project-period">2025</span>
+        <span class="project-category">{current === 'tr' ? 'Robotik & Simülasyon' : 'Robotics & Simulation'}</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">NexusControl Sim</h3>
+        <p class="project-desc">
+          {current === 'tr'
+            ? 'Fanuc LR Mate 200iC robot kolunun URDF modelini manipüle ederek tüm eksenlerde hareket simülasyonu yapar. İleri ve ters kinematik hesaplarını gerçek zamanlı çözer; en hızlı ve en ekonomik yolları karşılaştırır. Anlık voltaj çekimini izler, engel tespitinde çarpışmadan kaçınır, çarpışma anında acil stop tetiklenir — tüm süreç canlı simülasyon ekranında görüntülenir. Yüklenen G-code dosyaları için lazer kesim haritası oluşturur, maliyet ve süre tahmini yapar; işlem hızlandırılmış modda da simüle edilebilir.'
+            : 'Simulates full-axis motion of a Fanuc LR Mate 200iC robotic arm via URDF model manipulation. Solves forward and inverse kinematics in real time, comparing the fastest and most energy-efficient paths. Monitors live voltage draw, performs obstacle avoidance and triggers emergency stop on collision — all visualized in a live simulation viewport. Generates laser-cutting maps from loaded G-code files with cost and time estimation; the process can be run in accelerated simulation mode.'}
+        </p>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/m3rtg/NexusControl-sim" target="_blank" rel="noreferrer">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-item">
+      <div class="project-meta">
+        <span class="project-period">2024 – 2025</span>
+        <span class="project-category">GUI / Teknofest</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">{current === 'tr' ? 'UARTEK Hava Savunma Sistemi' : 'UARTEK Air Defence System'}</h3>
+        <p class="project-desc">
+          {current === 'tr'
+            ? 'Galvonometre tabanlı hava savunma sistemi için otonom ve manuel yönetimi sağlayan kullanıcı arayüzünü geliştirdim; Teknofest\'e başvurduk.'
+            : 'Developed the user interface enabling autonomous and manual control for a galvanometer-based air defence system; submitted to Teknofest.'}
+        </p>
+      </div>
+    </article>
+
+    <article class="project-item">
+      <div class="project-meta">
+        <span class="project-period">2023 – 2025</span>
+        <span class="project-category">{current === 'tr' ? 'Robotik' : 'Robotics'}</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">UARTEK Rover</h3>
+        <p class="project-desc">
+          {current === 'tr'
+            ? 'ERC ve CIRC yarışmalarına başvuran ekipte robot kol geliştirme ve simülasyon hazırlama görevlerinde yer aldım.'
+            : 'In the team applying to ERC and CIRC competitions, I worked on robotic arm development and simulation preparation.'}
+        </p>
+        <div class="project-links">
+          <a class="project-link" href="https://www.youtube.com/watch?v=LU82qFIDWTU" target="_blank" rel="noreferrer">
+            2024
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a class="project-link" href="https://www.youtube.com/watch?v=Zjbt3IUMxvc" target="_blank" rel="noreferrer">
+            2025
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-item">
+      <div class="project-meta">
+        <span class="project-period">2022 – 2023</span>
+        <span class="project-category">{current === 'tr' ? 'Otonom Sistemler' : 'Autonomous Systems'}</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">{current === 'tr' ? 'Poyraz Robotaksi' : 'Poyraz Robotaxi'}</h3>
+        <p class="project-desc">
+          {current === 'tr'
+            ? 'MCBÜ Bilim ve Teknoloji Kulübü bünyesindeki ekipte aktif rol aldım. "Karaçor" isimli otonom aracımızla Robotaksi-Binek Otonom Araç Yarışması\'nda finalist olduk.'
+            : 'Active role in the university team. With our autonomous vehicle "Karaçor" we became finalists in the Robotaxi-Passenger Autonomous Vehicle Competition.'}
+        </p>
+        <div class="project-links">
+          <a class="project-link" href="https://www.youtube.com/watch?v=TmRs7XQ3giY" target="_blank" rel="noreferrer">
+            {current === 'tr' ? 'Proje Videosu' : 'Project Video'}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- â•â•â• CERTIFICATIONS â•â•â• -->
 <section id="achievements" class="section">
-  <h2>{current === 'tr' ? 'Sertifikalar' : 'Certifications'}</h2>
-  <div class="achievements-grid">
-    <div class="achievement-card">
-      <div class="achievement-icon">
-        <img src="/PyTorch.png" alt="PyTorch Logo" class="logo-img" />
+  <div class="section-label">{current === 'tr' ? 'â€” Sertifikalar' : 'â€” Certifications'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'EÄŸitim & Sertifikalar' : 'Education & Certifications'}</h2>
+  <div class="certs-list">
+
+    <div class="cert-row">
+      <div class="cert-logo-wrap">
+        <img src="/PyTorch.png" alt="PyTorch" class="cert-logo" />
       </div>
-      <h3>PyTorch</h3>
-      <p>{current === 'tr' ? 'Derin Öğrenme ve Yapay Zeka Sertifikası' : 'Deep Learning and AI Certification'}</p>
-      <span class="achievement-year">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
-    </div>
-    
-    <div class="achievement-card">
-      <div class="achievement-icon">
-        <img src="/Node.js.png" alt="Node.js Logo" class="logo-img" />
+      <div class="cert-info">
+        <p class="cert-issuer">PyTorch</p>
+        <p class="cert-name">{current === 'tr' ? 'Derin Ã–ÄŸrenme & Yapay Zeka' : 'Deep Learning & AI'}</p>
       </div>
-      <h3>Node.js</h3>
-      <p>{current === 'tr' ? 'Backend Geliştirme Sertifikası' : 'Backend Development Certification'}</p>
-      <span class="achievement-year">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
+      <span class="cert-badge" style="display:none">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
     </div>
-    
-    <div class="achievement-card">
-      <div class="achievement-icon">
-        <img src="/ROS2.png" alt="ROS2 Logo" class="logo-img" />
+
+    <div class="cert-row">
+      <div class="cert-logo-wrap">
+        <img src="/Node.js.png" alt="Node.js" class="cert-logo" />
       </div>
-      <h3>ROS2</h3>
-      <p>{current === 'tr' ? 'Robot İşletim Sistemi Sertifikası' : 'Robot Operating System Certification'}</p>
-      <span class="achievement-year">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
+      <div class="cert-info">
+        <p class="cert-issuer">Node.js</p>
+        <p class="cert-name">{current === 'tr' ? 'Backend GeliÅŸtirme' : 'Backend Development'}</p>
+      </div>
+      <span class="cert-badge" style="display:none">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
     </div>
+
+    <div class="cert-row">
+      <div class="cert-logo-wrap">
+        <img src="/ROS2.png" alt="ROS2" class="cert-logo" />
+      </div>
+      <div class="cert-info">
+        <p class="cert-issuer">ROS2</p>
+        <p class="cert-name">{current === 'tr' ? 'Robot Ä°ÅŸletim Sistemi' : 'Robot Operating System'}</p>
+      </div>
+      <span class="cert-badge" style="display:none">{current === 'tr' ? 'Sertifika' : 'Certificate'}</span>
+    </div>
+
   </div>
 </section>
 
-<section id="contact" class="section">
-  <h2>{current === 'tr' ? 'İletişim' : 'Contact'}</h2>
+<!-- â•â•â• CONTACT â•â•â• -->
+<section id="contact" class="section section-contact">
+  <div class="section-label">{current === 'tr' ? 'â€” Ä°letiÅŸim' : 'â€” Contact'}</div>
+  <h2 class="section-heading">{current === 'tr' ? 'KonuÅŸalÄ±m' : 'Let\'s Talk'}</h2>
+  <p class="contact-intro">
+    {current === 'tr'
+      ? 'Bir proje, fÄ±rsat veya sadece merhaba demek iÃ§in bana ulaÅŸabilirsiniz.'
+      : 'Reach out for a project, an opportunity, or just to say hello.'}
+  </p>
   <Contact />
-  <div style="height:24px"></div>
+  <div style="height: 4rem"></div>
 </section>
 
 <style>
-  /* Hero Section */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    max-width: 1200px;
+  /* â”€â”€ Shared â”€â”€ */
+  .section {
+    max-width: 960px;
     margin: 0 auto;
+    padding: 6rem 2rem 0;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 1rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+    margin-bottom: 2.5rem;
+    line-height: 1.15;
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     HERO
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .hero {
+    min-height: calc(100vh - 72px);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 420px;
     gap: 4rem;
     align-items: center;
-    position: relative;
-    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
   }
 
-  .hero-text {
-    max-width: 600px;
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--success);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+  }
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success);
+    flex-shrink: 0;
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.45); }
+    50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+  }
+  :root[data-theme="dark"] .eyebrow-dot {
+    background: var(--success);
   }
 
-  .title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-    margin: 0 0 1rem;
-    letter-spacing: -0.02em;
-  }
 
-  .title-line {
-    display: block;
+  .hero-name {
+    font-size: clamp(2.75rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
     color: var(--fg);
+    margin: 0 0 0.75rem;
   }
 
-  .title-gradient {
-    display: block;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .subtitle {
-    font-size: 1.25rem;
+  .hero-title {
+    font-size: 1rem;
     font-weight: 500;
     color: var(--fg-secondary);
     margin: 0 0 1.5rem;
+    letter-spacing: 0.01em;
+  }
+  .title-separator {
+    margin: 0 0.5em;
+    color: var(--border-strong);
   }
 
-  .lead {
-    font-size: 1.1rem;
-    line-height: 1.7;
+  .hero-bio {
+    font-size: 1.05rem;
+    line-height: 1.75;
     color: var(--fg-secondary);
+    max-width: 520px;
     margin: 0 0 2rem;
   }
 
   .hero-meta {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-muted);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    transition: opacity 0.2s, transform 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--fg-secondary);
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .btn-ghost:hover {
+    color: var(--fg);
+    border-color: var(--border-strong);
+    background: var(--accent-subtle);
+  }
+
+  /* Hero Graphic */
+  .hero-graphic {
+    position: relative;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .geo {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    animation: slow-rotate 20s linear infinite;
+  }
+  :root[data-theme="dark"] .geo { opacity: 0.08; }
+
+  .geo-1 {
+    width: 280px; height: 280px;
+    border: 1.5px solid var(--accent);
+  }
+  .geo-2 {
+    width: 200px; height: 200px;
+    border: 1.5px solid var(--highlight);
+    animation-duration: 28s;
+    animation-direction: reverse;
+  }
+  .geo-3 {
+    width: 340px; height: 340px;
+    border: 1px dashed var(--border-strong);
+    animation-duration: 36s;
+    opacity: 0.25;
+  }
+  @keyframes slow-rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .label-cluster {
+    position: relative;
+    z-index: 1;
+    display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin: 0 0 2rem;
   }
-
-  .meta-item {
+  .label-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 0.95rem;
-    color: var(--fg-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    box-shadow: var(--shadow);
+    animation: label-float 5s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  .label-item:nth-child(2) { animation-delay: 1.65s; }
+  .label-item:nth-child(3) { animation-delay: 3.3s; }
+  @keyframes label-float {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%       { transform: translate3d(0, -4px, 0); }
+  }
+  .label-icon {
+    font-size: 1.1rem;
+    color: var(--highlight);
     line-height: 1;
-    min-height: 1.5rem;
+    font-style: normal;
+  }
+  .label-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--fg);
+    letter-spacing: 0.01em;
   }
 
-  .meta-icon {
-    font-size: 1.1rem;
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     ABOUT
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--fg-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+  }
+  .aside-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .stat-num {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--fg);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--fg-muted);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SKILLS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .skills-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+  .skill-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .skill-group-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin: 0;
+  }
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--fg-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    transition: color 0.18s, border-color 0.18s, background 0.18s;
+    letter-spacing: 0.01em;
+  }
+  .pill:hover {
+    color: var(--fg);
+    border-color: var(--highlight);
+    background: var(--highlight-subtle);
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     PROJECTS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow);
+  }
+  .project-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    padding: 2rem 2rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+    position: relative;
+  }
+  .project-item:last-child { border-bottom: none; }
+  .project-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: transparent;
+    transition: background 0.25s;
+  }
+  .project-item:hover {
+    background: var(--accent-subtle);
+  }
+  .project-item:hover::before {
+    background: var(--highlight);
+  }
+  .project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 0.15rem;
+  }
+  .project-period {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+  .project-category {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--highlight);
+  }
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .project-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .project-desc {
+    font-size: 0.93rem;
+    line-height: 1.7;
+    color: var(--fg-secondary);
+    margin: 0;
+  }
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.25rem;
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--fg-muted);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.18s;
+  }
+  .project-link:hover { color: var(--highlight); }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     CERTIFICATIONS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .certs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow);
+  }
+  .cert-row {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 1.1rem;
-    height: 1.1rem;
-    flex-shrink: 0;
+    gap: 1.25rem;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
   }
-
-  .meta-icon.status-dot {
-    width: 1.1rem;
-    height: 1.1rem;
-    background: transparent;
-    border-radius: 50%;
+  .cert-row:last-child { border-bottom: none; }
+  .cert-row:hover { background: var(--accent-subtle); }
+  .cert-logo-wrap {
+    width: 44px;
+    height: 44px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-    position: relative;
+    padding: 6px;
   }
-
-  .meta-icon.status-dot::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: var(--success);
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
-    animation: pulse 2s infinite;
-    display: block;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.5rem;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .btn-primary {
-    background: var(--gradient-primary);
-    color: white;
-    box-shadow: var(--shadow);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .btn-secondary {
-    background: var(--bg-secondary);
-    color: var(--fg);
-    border: 1px solid var(--border);
-  }
-
-  .btn-secondary:hover {
-    background: var(--border-light);
-    transform: translateY(-2px);
-  }
-
-  .btn-icon {
-    transition: transform 0.3s ease;
-  }
-
-  .btn-primary:hover .btn-icon {
-    transform: translateX(4px);
-  }
-
-  /* Hero Visual */
-  .hero-visual {
-    position: relative;
-    height: 400px;
-  }
-
-  .floating-card {
-    position: absolute;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(10px);
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .card-1 {
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-  }
-
-  .card-2 {
-    top: 50%;
-    right: 20%;
-    animation-delay: 2s;
-  }
-
-  .card-3 {
-    bottom: 20%;
-    left: 30%;
-    animation-delay: 4s;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .card-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Sections */
-  .section {
-    max-width: 1200px;
-    margin: 6rem auto 0;
-    padding: 0 2rem;
-  }
-
-  .section h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    text-align: center;
-    margin: 0 0 3rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Skills Section */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .skill-category {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-  }
-
-  .skill-category:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .skill-category h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0 0 1.5rem;
-    color: var(--fg);
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .skill-tag {
-    background: var(--gradient-accent);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    box-shadow: var(--shadow);
-  }
-
-  /* Projects Section */
-  .projects-grid {
-    display: grid;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .project-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+  .cert-logo {
     width: 100%;
-    height: 4px;
-    background: var(--gradient-primary);
-  }
-
-  .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-    gap: 1rem;
-  }
-
-  .project-header h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-    color: var(--fg);
-  }
-
-  .project-year {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .project-description {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--fg-secondary);
-    margin: 0 0 1.5rem;
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .project-tag {
-    background: var(--border-light);
-    color: var(--fg);
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-
-  .project-link, .project-links {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  .project-link:hover {
-    color: var(--accent-dark);
-  }
-
-  .project-links {
-    display: flex;
-    gap: 1rem;
-  }
-
-  /* Achievements Section */
-  .achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .achievement-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-
-  .achievement-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-secondary);
-  }
-
-  .achievement-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .achievement-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .logo-img {
-    width: 64px;
-    height: 64px;
+    height: 100%;
     object-fit: contain;
-    display: block;
-    margin: 0 auto;
   }
-
-
-  .achievement-card h3 {
-    font-size: 1.25rem;
+  .cert-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .cert-issuer {
+    font-size: 0.95rem;
     font-weight: 700;
-    margin: 0 0 1rem;
     color: var(--fg);
+    margin: 0;
+    letter-spacing: -0.01em;
   }
-
-  .achievement-card p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--fg-secondary);
-    margin: 0 0 1rem;
+  .cert-name {
+    font-size: 0.82rem;
+    color: var(--fg-muted);
+    margin: 0;
   }
-
-  .achievement-year {
-    background: var(--gradient-secondary);
-    color: white;
+  .cert-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--highlight);
+    background: var(--highlight-subtle);
+    border: 1px solid rgba(var(--highlight-rgb), 0.25);
+    border-radius: 999px;
     padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    font-weight: 600;
+    flex-shrink: 0;
   }
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .hero-content {
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     CONTACT
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  .section-contact { padding-bottom: 2rem; }
+  .contact-intro {
+    font-size: 1rem;
+    color: var(--fg-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     RESPONSIVE
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  @media (max-width: 900px) {
+    .hero {
       grid-template-columns: 1fr;
-      gap: 2rem;
-      text-align: center;
+      min-height: auto;
+      padding-top: 3rem;
     }
-
-    .title {
-      font-size: 2.5rem;
-    }
-
-    .hero-visual {
-      height: 300px;
-    }
-
-    .floating-card {
-      padding: 1rem;
-    }
-
-    .skills-grid {
+    .hero-graphic { display: none; }
+    .about-grid {
       grid-template-columns: 1fr;
     }
-
-    .project-header {
-      flex-direction: column;
-      align-items: flex-start;
+    .about-aside {
+      flex-direction: row;
+      gap: 1.5rem;
+      padding: 1.25rem 1.5rem;
     }
+    .aside-stat { flex: 1; align-items: center; text-align: center; }
+  }
 
-    .hero-actions {
-      justify-content: center;
+  @media (max-width: 640px) {
+    .section { padding: 4rem 1.25rem 0; }
+    .hero { padding: 2.5rem 1.25rem; }
+    .hero-name { font-size: 2.25rem; }
+    .section-heading { font-size: 1.6rem; }
+    .project-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
     }
+    .project-meta { flex-direction: row; align-items: center; gap: 0.75rem; }
+    .cert-row { padding: 1rem 1.25rem; }
+    .cert-badge { display: none; }
+    .skills-layout { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 480px) {
-    .hero {
-      padding: 2rem 1rem;
-    }
-
-    .section {
-      padding: 0 1rem;
-    }
-
-    .title {
-      font-size: 2rem;
-    }
-
-    .btn {
-      padding: 0.75rem 1.25rem;
-      font-size: 0.9rem;
-    }
+    .hero-title { font-size: 0.9rem; }
+    .hero-bio { font-size: 0.95rem; }
+    .btn-primary, .btn-ghost { font-size: 0.85rem; padding: 0.65rem 1.1rem; }
   }
 </style>
