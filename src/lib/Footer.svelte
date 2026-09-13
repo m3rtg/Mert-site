@@ -11,9 +11,11 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <span class="footer-name">Muhammet Mert Görgülü</span>
-    <span class="footer-sep">·</span>
-    <span class="footer-copy">&copy; 2025 - {year}</span>
+    <div class="footer-info">
+      <span class="footer-name">Muhammet Mert Görgülü</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-copy">&copy; 2025 - {year}</span>
+    </div>
 
     <div class="footer-socials">
       <button class="f-btn" on:click={openEmail} title="Email" aria-label="Email">
@@ -43,13 +45,20 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 1rem;
     flex-wrap: wrap;
+  }
+  .footer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   .footer-name {
     font-size: 0.825rem;
     font-weight: 600;
     color: var(--fg);
+    white-space: nowrap;
   }
   .footer-sep {
     color: var(--fg-muted);
@@ -58,12 +67,13 @@
   .footer-copy {
     font-size: 0.8rem;
     color: var(--fg-muted);
-    flex: 1;
+    white-space: nowrap;
   }
   .footer-socials {
     display: flex;
     align-items: center;
     gap: 0.375rem;
+    flex-shrink: 0;
   }
   .f-btn {
     background: transparent;
@@ -84,6 +94,17 @@
     color: var(--fg);
     border-color: var(--border-strong);
     background: var(--bg-secondary);
+  }
+
+  @media (max-width: 640px) {
+    .footer-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+    .footer-sep {
+      display: none;
+    }
   }
 
   @media (max-width: 480px) {
