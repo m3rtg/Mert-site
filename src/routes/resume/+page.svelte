@@ -1,10 +1,5 @@
 <script>
   import { lang } from '$lib/stores';
-  import { onMount } from 'svelte';
-  
-  onMount(() => {
-    window.scrollTo(0, 0);
-  });
 </script>
 
 <div class="resume-page">
@@ -64,6 +59,12 @@
               Simulates full-axis motion of a Fanuc LR Mate 200iC robotic arm via URDF model manipulation. Solves forward and inverse kinematics in real time, comparing the fastest and most energy-efficient paths. Monitors live voltage draw, performs obstacle avoidance and triggers emergency stop on collision — all visualized in a live simulation viewport. Generates laser-cutting maps from loaded G-code files with cost and time estimation; the process can be run in accelerated simulation mode.
             {/if}
           </p>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/m3rtg/NexusControl-sim" target="_blank" rel="noreferrer">
+              GitHub
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -98,6 +99,16 @@
               In the team applying to ERC and CIRC competitions, I worked on robotic arm development and simulation preparation.
             {/if}
           </p>
+          <div class="project-links">
+            <a class="project-link" href="https://www.youtube.com/watch?v=LU82qFIDWTU" target="_blank" rel="noreferrer">
+              2024
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <a class="project-link" href="https://www.youtube.com/watch?v=Zjbt3IUMxvc" target="_blank" rel="noreferrer">
+              2025
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -115,6 +126,12 @@
               Active role in the university team. With our autonomous vehicle "Karaçor" we became finalists in the Robotaxi-Passenger Autonomous Vehicle Competition.
             {/if}
           </p>
+          <div class="project-links">
+            <a class="project-link" href="https://www.youtube.com/watch?v=TmRs7XQ3giY" target="_blank" rel="noreferrer">
+              {#if $lang === 'tr'}Proje Videosu{:else}Project Video{/if}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -256,6 +273,33 @@
     font-size: 0.95rem;
     line-height: 1.7;
     color: var(--fg-secondary);
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.875rem;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--fg-muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    transition: color 0.18s, border-color 0.18s, background 0.18s;
+  }
+
+  .project-link:hover {
+    color: var(--fg);
+    border-color: var(--border-strong);
+    background: var(--bg-tertiary);
   }
 
   /* Skills grid */

@@ -2,7 +2,6 @@
   import { theme, lang } from "./stores";
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
-  import { goto } from "$app/navigation";
 
   const menuOpen = writable(false);
   const hidden = writable(false);
@@ -10,11 +9,6 @@
 
   function toggleTheme() {
     theme.set($theme === "dark" ? "light" : "dark");
-  }
-
-  function handleResumeClick() {
-    goto('/resume');
-    window.scrollTo(0, 0);
   }
 
   onMount(() => {
@@ -57,7 +51,7 @@
       <a href="/#skills"       class="nav-link">{#if $lang === "tr"}Beceriler{:else}Skills{/if}</a>
       <a href="/#projects"     class="nav-link">{#if $lang === "tr"}Projeler{:else}Projects{/if}</a>
       <a href="/#achievements" class="nav-link">{#if $lang === "tr"}Sertifikalar{:else}Certifications{/if}</a>
-      <a href="/resume"        class="nav-link" on:click={handleResumeClick}>{#if $lang === "tr"}Özgeçmiş{:else}Resume{/if}</a>
+      <a href="/resume"        class="nav-link">{#if $lang === "tr"}Özgeçmiş{:else}Resume{/if}</a>
       <a href="/#contact"      class="nav-link">{#if $lang === "tr"}İletişim{:else}Contact{/if}</a>
     </div>
   </div>
@@ -92,7 +86,7 @@
     <a href="/#skills"       class="mobile-nav-link" on:click={() => menuOpen.set(false)}>{#if $lang === "tr"}Beceriler{:else}Skills{/if}</a>
     <a href="/#projects"     class="mobile-nav-link" on:click={() => menuOpen.set(false)}>{#if $lang === "tr"}Projeler{:else}Projects{/if}</a>
     <a href="/#achievements" class="mobile-nav-link" on:click={() => menuOpen.set(false)}>{#if $lang === "tr"}Sertifikalar{:else}Certifications{/if}</a>
-    <a href="/resume"        class="mobile-nav-link" on:click={() => { menuOpen.set(false); handleResumeClick(); }}>{#if $lang === "tr"}Özgeçmiş{:else}Resume{/if}</a>
+    <a href="/resume"        class="mobile-nav-link" on:click={() => menuOpen.set(false)}>{#if $lang === "tr"}Özgeçmiş{:else}Resume{/if}</a>
     <a href="/#contact"      class="mobile-nav-link" on:click={() => menuOpen.set(false)}>{#if $lang === "tr"}İletişim{:else}Contact{/if}</a>
     <div class="mobile-divider"></div>
     <div class="mobile-controls">

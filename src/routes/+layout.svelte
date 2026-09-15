@@ -4,7 +4,7 @@
   import Footer from '$lib/Footer.svelte';
   import { theme, lang } from '$lib/stores';
   import { onMount } from 'svelte';
-  import { onNavigate } from '$app/navigation';
+  import { onNavigate, beforeNavigate, afterNavigate } from '$app/navigation';
 
   onMount(() => {
     const unsub = theme.subscribe((t) => {
@@ -12,6 +12,16 @@
     });
     const unsub2 = lang.subscribe(() => {});
     return () => { unsub(); unsub2(); };
+  });
+
+  beforeNavigate((nav) => {
+    if (nav.to?.route.id !== nav.from?.route.id) {
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
+  });
+
+  afterNavigate(() => {
+    document.documentElement.style.scrollBehavior = '';
   });
 
   // View Transitions API — smooth fade between pages
