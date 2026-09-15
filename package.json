@@ -45,7 +45,9 @@
 		"svelte"
 	],
 	"dependencies": {
+		"cloudinary": "^2.11.0",
 		"lucide-svelte": "^0.542.0",
+		"mongoose": "^9.10.1",
 		"nodemailer": "^7.0.5"
 	}
 }
