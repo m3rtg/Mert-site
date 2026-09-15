@@ -2,6 +2,7 @@
   import '../app.css';
   import NavBar from '$lib/NavBar.svelte';
   import Footer from '$lib/Footer.svelte';
+  import ScrollToTop from '$lib/ScrollToTop.svelte';
   import { theme, lang } from '$lib/stores';
   import { onMount } from 'svelte';
   import { onNavigate, beforeNavigate, afterNavigate } from '$app/navigation';
@@ -67,6 +68,8 @@
 </main>
 
 <Footer />
+
+<ScrollToTop />
 
 <style>
   .page {
