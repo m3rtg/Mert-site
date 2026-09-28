@@ -1,6 +1,7 @@
 <script>
   import { lang } from '$lib/stores';
   import Contact from './contact/+page.svelte';
+  export let data;
   $: current = $lang;
 </script>
 
@@ -95,34 +96,26 @@
   <div class="section-label">{current === 'tr' ? '— Teknolojiler & Beceriler' : '— Technologies & Skills'}</div>
   <h2 class="section-heading">{current === 'tr' ? 'Araç Setim' : 'My Toolkit'}</h2>
   <div class="skills-layout">
+    {#each Object.entries(data.skillsByCategory) as [category, categorySkills]}
     <div class="skill-group">
-      <h3 class="skill-group-title">{current === 'tr' ? 'Programlama Dilleri' : 'Languages'}</h3>
+      <h3 class="skill-group-title">
+        {#if category === 'languages'}
+          {current === 'tr' ? 'Programlama Dilleri' : 'Languages'}
+        {:else if category === 'frameworks'}
+          {current === 'tr' ? 'Framework & Kütüphaneler' : 'Frameworks & Libraries'}
+        {:else if category === 'tools'}
+          {current === 'tr' ? 'Mühendislik Araçları' : 'Engineering Tools'}
+        {:else}
+          {category}
+        {/if}
+      </h3>
       <div class="skill-pills">
-        <span class="pill">JavaScript</span>
-        <span class="pill">Python</span>
-        <span class="pill">HTML</span>
-        <span class="pill">CSS</span>
+        {#each categorySkills as skill}
+        <span class="pill">{skill.name}</span>
+        {/each}
       </div>
     </div>
-    <div class="skill-group">
-      <h3 class="skill-group-title">{current === 'tr' ? 'Framework & Kütüphaneler' : 'Frameworks & Libraries'}</h3>
-      <div class="skill-pills">
-        <span class="pill">SvelteKit</span>
-        <span class="pill">Node.js</span>
-        <span class="pill">Express</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h3 class="skill-group-title">{current === 'tr' ? 'Mühendislik Araçları' : 'Engineering Tools'}</h3>
-      <div class="skill-pills">
-        <span class="pill">SolidWorks</span>
-        <span class="pill">TIA Portal</span>
-        <span class="pill">DIADesigner</span>
-        <span class="pill">DOPSoft</span>
-        <span class="pill">ROS2</span>
-        <span class="pill">PyTorch</span>
-      </div>
-    </div>
+    {/each}
   </div>
 </section>
 
@@ -131,89 +124,28 @@
   <div class="section-label">{current === 'tr' ? '— Projeler' : '— Projects'}</div>
   <h2 class="section-heading">{current === 'tr' ? 'Seçili Çalışmalar' : 'Selected Work'}</h2>
   <div class="projects-list">
-
+    {#each data.projects as project}
     <article class="project-item">
       <div class="project-meta">
-        <span class="project-period">2026</span>
-        <span class="project-category">{current === 'tr' ? 'Robotik & Simülasyon' : 'Robotics & Simulation'}</span>
+        <span class="project-period">{project.period || ''}</span>
+        <span class="project-category">{current === 'tr' ? project.category_tr : project.category_en}</span>
       </div>
       <div class="project-content">
-        <h3 class="project-title">NexusControl Sim</h3>
-        <p class="project-desc">
-          {current === 'tr'
-            ? 'Fanuc LR Mate 200iC robot kolunun URDF modelini manipüle ederek tüm eksenlerde hareket simülasyonu yapar. İleri ve ters kinematik hesaplarını gerçek zamanlı çözer; en hızlı ve en ekonomik yolları karşılaştırır. Anlık voltaj çekimini izler, engel tespitinde çarpışmadan kaçınır, çarpışma anında acil stop tetiklenir — tüm süreç canlı simülasyon ekranında görüntülenir. Yüklenen G-code dosyaları için lazer kesim haritası oluşturur, maliyet ve süre tahmini yapar; işlem hızlandırılmış modda da simüle edilebilir.'
-            : 'Simulates full-axis motion of a Fanuc LR Mate 200iC robotic arm via URDF model manipulation. Solves forward and inverse kinematics in real time, comparing the fastest and most energy-efficient paths. Monitors live voltage draw, performs obstacle avoidance and triggers emergency stop on collision — all visualized in a live simulation viewport. Generates laser-cutting maps from loaded G-code files with cost and time estimation; the process can be run in accelerated simulation mode.'}
-        </p>
+        <h3 class="project-title">{current === 'tr' ? project.title_tr : project.title_en}</h3>
+        <p class="project-desc">{current === 'tr' ? project.desc_tr : project.desc_en}</p>
         <div class="project-links">
-          <a class="project-link" href="https://github.com/m3rtg/NexusControl-sim" target="_blank" rel="noreferrer">
-            GitHub
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
+          {#if project.links && project.links.length > 0}
+            {#each project.links as link}
+            <a class="project-link" href={link.url} target="_blank" rel="noreferrer">
+              {current === 'tr' ? link.title_tr : link.title_en}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            {/each}
+          {/if}
         </div>
       </div>
     </article>
-
-    <article class="project-item">
-      <div class="project-meta">
-        <span class="project-period">2024 – 2025</span>
-        <span class="project-category">GUI / Teknofest</span>
-      </div>
-      <div class="project-content">
-        <h3 class="project-title">{current === 'tr' ? 'UARTEK Hava Savunma Sistemi' : 'UARTEK Air Defence System'}</h3>
-        <p class="project-desc">
-          {current === 'tr'
-            ? 'Galvonometre tabanlı hava savunma sistemi için otonom ve manuel yönetimi sağlayan kullanıcı arayüzünü geliştirdim; Teknofest\'e başvurduk.'
-            : 'Developed the user interface enabling autonomous and manual control for a galvanometer-based air defence system; submitted to Teknofest.'}
-        </p>
-      </div>
-    </article>
-
-    <article class="project-item">
-      <div class="project-meta">
-        <span class="project-period">2023 – 2025</span>
-        <span class="project-category">{current === 'tr' ? 'Robotik' : 'Robotics'}</span>
-      </div>
-      <div class="project-content">
-        <h3 class="project-title">UARTEK Rover</h3>
-        <p class="project-desc">
-          {current === 'tr'
-            ? 'ERC ve CIRC yarışmalarına başvuran ekipte robot kol geliştirme ve simülasyon hazırlama görevlerinde yer aldım.'
-            : 'In the team applying to ERC and CIRC competitions, I worked on robotic arm development and simulation preparation.'}
-        </p>
-        <div class="project-links">
-          <a class="project-link" href="https://www.youtube.com/watch?v=LU82qFIDWTU" target="_blank" rel="noreferrer">
-            2024
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-          <a class="project-link" href="https://www.youtube.com/watch?v=Zjbt3IUMxvc" target="_blank" rel="noreferrer">
-            2025
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article class="project-item">
-      <div class="project-meta">
-        <span class="project-period">2022 – 2023</span>
-        <span class="project-category">{current === 'tr' ? 'Otonom Sistemler' : 'Autonomous Systems'}</span>
-      </div>
-      <div class="project-content">
-        <h3 class="project-title">{current === 'tr' ? 'Poyraz Robotaksi' : 'Poyraz Robotaxi'}</h3>
-        <p class="project-desc">
-          {current === 'tr'
-            ? 'MCBÜ Bilim ve Teknoloji Kulübü bünyesindeki ekipte aktif rol aldım. "Karaçor" isimli otonom aracımızla Robotaksi-Binek Otonom Araç Yarışması\'nda finalist olduk.'
-            : 'Active role in the university team. With our autonomous vehicle "Karaçor" we became finalists in the Robotaxi-Passenger Autonomous Vehicle Competition.'}
-        </p>
-        <div class="project-links">
-          <a class="project-link" href="https://www.youtube.com/watch?v=TmRs7XQ3giY" target="_blank" rel="noreferrer">
-            {current === 'tr' ? 'Proje Videosu' : 'Project Video'}
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-    </article>
-
+    {/each}
   </div>
 </section>
 
